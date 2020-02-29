@@ -1,9 +1,7 @@
-//Source:https://www.instructables.com/id/Arduino-Controlled-SIP-PUFF-Switch/?fbclid=IwAR3jvFi6FkQGaI4c5guEvFg-p2yS8j0Ycy4vBAsvxtt7ivxsAI9esh70yUk
 
 // ----------------------------------------------------------------
-// SIP & PUFF CONTROL CODE SEGMENT
-// Mark Theobald - www.DisabledAdventurers.com
-// Free to Use in Any Way You Like!
+// SIP & PUFF 
+
 // ----------------------------------------------------------------
 
 // ----------------------------------------------------------------
