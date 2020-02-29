@@ -1,4 +1,13 @@
+//Source:https://www.instructables.com/id/Arduino-Controlled-SIP-PUFF-Switch/?fbclid=IwAR3jvFi6FkQGaI4c5guEvFg-p2yS8j0Ycy4vBAsvxtt7ivxsAI9esh70yUk
 
+// ----------------------------------------------------------------
+// SIP & PUFF CONTROL CODE SEGMENT
+// Mark Theobald - www.DisabledAdventurers.com
+// Free to Use in Any Way You Like!
+// ----------------------------------------------------------------
+
+// ----------------------------------------------------------------
+//sensor - mprls
 #include <Wire.h>
 #include "Adafruit_MPRLS.h"
 
@@ -214,18 +223,16 @@ if (Flag==false){
   
 if(Flag==true)	// sip control
 {
-  float pressure_hPa = mpr.readPressure();
-  int ambientPressure = 1000;
-  float factor = 5.0;
-  
-  
+  float pressure_hPa = mpr.readPressure();	//read current pressure
+  //if pressure not within margin of error, generate motor velocity between -1500 and 1500
+  if (pressure_hPa >= ambientPressure+5 || pressure_hPa <= ambientPressure-5)
+  	velocity = (pressure_hPa-ambientPressure)%1500
+  else
+    velocity = 0.0
+  motor.setSpeed(velocity) 
 }
     
     
-    
-    
-    
-  }
 
 if(Flag==true) //sip control
 {//pseudo code
@@ -264,3 +271,13 @@ if(Flag==true) //sip control
 
 
 }
+
+// ----------------------------------------------------------------
+// END OF CODE SEGMENT
+// ----------------------------------------------------------------
+
+
+//https://www.instructables.com/id/Arduino-Controlled-SIP-PUFF-Switch/?fbclid=IwAR3jvFi6FkQGaI4c5guEvFg-p2yS8j0Ycy4vBAsvxtt7ivxsAI9esh70yUk
+
+
+// MPRLS Lib
